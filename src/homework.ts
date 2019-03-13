@@ -17,15 +17,15 @@ function factorial(n : number) :number {
 Если нет ни одного аргумента, вернуть ноль: multiply() // 0
  */
 
-function sumArgs(...arguments: number[]): number {
-    if (arguments.length < 1) {
+function sumArgs(...args: number[]): number {
+    if (args.length < 1) {
         return 0;
     }
-    let sum : number = arguments.reduce((a, b)=> a * b);   
+    let sum : number = args.reduce((a, b)=> a * b);   
     return sum;
   }
 
-//   console.log(sumArgs(12,12,12)) 
+//   console.log(sumArgs(12,12,12)); 
 
 
 /* 
@@ -59,12 +59,9 @@ interface AdminInterface {
 */
 
 abstract class Car{
-    protected _mileage : number;
-    protected _fuel : number;
 
-    constructor(mileage: number, fuel: number){
-        this._mileage = mileage;
-        this._fuel = fuel;
+    constructor(protected _mileage: number, protected _fuel: number){
+
     }
     public abstract drive(km: number): void;
     public abstract refuel(gas: number): void;
@@ -107,5 +104,3 @@ class initCar extends Car{
 }
 
 // let obj = new initCar(500, 500);
-
-
